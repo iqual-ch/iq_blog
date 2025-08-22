@@ -2,7 +2,7 @@ name: iqual Blog - comment
 description: comment extension for iq_blog module
 package: iqual Blog
 type: module
-core_version_requirement: ^9.5 || ^10
+core_version_requirement: ^10 || ^11
 dependencies:
   - iq_blog:iq_blog
   - drupal:comment
