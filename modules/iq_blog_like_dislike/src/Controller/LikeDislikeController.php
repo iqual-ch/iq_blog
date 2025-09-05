@@ -5,6 +5,7 @@ namespace Drupal\iq_blog_like_dislike\Controller;
 use Drupal\Core\Ajax\AjaxResponse;
 use Drupal\Core\Ajax\HtmlCommand;
 use Drupal\Core\Controller\ControllerBase;
+use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Flood\DatabaseBackend;
 use Drupal\Core\Render\RendererInterface;
@@ -94,8 +95,8 @@ class LikeDislikeController extends ControllerBase {
    */
   public function handler($clicked, $data) {
 
-    $return = '';
     $response = new AjaxResponse();
+    $return = $response;
 
     // Decode the url data.
     $dataDecoded = json_decode(base64_decode((string) $data));
@@ -107,7 +108,7 @@ class LikeDislikeController extends ControllerBase {
     $field_name = $dataDecoded->field_name;
 
     // Use flood service to check if ip has already liked/disliked.
-    if ($clicked == 'like') {
+    if ($clicked == 'like' && $entity instanceof EntityInterface && $entity->hasField($field_name)) {
       $alreadyClicked = !$this->floodService->isAllowed('iq_blog.like_nid_' . $entity->id(), 1, 86400);
       if (!$alreadyClicked) {
         $entity->$field_name->likes++;
@@ -118,7 +119,7 @@ class LikeDislikeController extends ControllerBase {
         new HtmlCommand('[data-like-dislike-target="like-' . $dataDecoded->entity_id . '"]', '<span>' . $entity->$field_name->likes . '</span>')
       );
     }
-    elseif ($clicked == 'dislike') {
+    elseif ($clicked == 'dislike' && $entity instanceof EntityInterface && $entity->hasField($field_name)) {
       $alreadyClicked = !$this->floodService->isAllowed('iq_blog.dislike_nid_' . $entity->id(), 1, 86400);
       if (!$alreadyClicked) {
         $entity->$field_name->dislikes++;
