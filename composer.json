@@ -10,10 +10,10 @@
   ],
   "require": {
     "php": "^8.1",
-    "drupal/core": "^9.5 || ^10",
-    "drupal/pagedesigner_block_adaptable": "^3.0 || ^4.0",
+    "drupal/core": "^10 || ^11",
+    "drupal/pagedesigner_block_adaptable": "^4.0",
     "iqual/iq_entity_browsers": "^3.0",
-    "drupal/publication_date": "^2.0",
+    "drupal/publication_date": "^3.0",
     "drupal/scheduler_request_cron": "^2.0",
     "drupal/frontendpublishing": "^3.0",
     "drupal/twig_tweak": "^3.0",
