@@ -14,7 +14,7 @@
     "drupal/pagedesigner_block_adaptable": "^4.1",
     "iqual/iq_entity_browsers": "^3.1",
     "drupal/publication_date": "^3.0",
-    "drupal/scheduler_request_cron": "2.1",
+    "drupal/scheduler_request_cron": "^2.1",
     "drupal/frontendpublishing": "^3.1",
     "drupal/twig_tweak": "^3.0",
     "drupal/term_reference_tree": "^2.0"
