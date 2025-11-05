@@ -2,7 +2,7 @@ name: iqual Blog - like/dislike for answers to comments
 description: like/dislike extension for iq_blog module answers to comments
 package: iqual Blog
 type: module
-core_version_requirement: ^9.5 || ^10
+core_version_requirement: ^10 || ^11
 dependencies:
   - iq_blog:iq_blog
   - iq_blog:iq_blog_like_dislike
